@@ -411,7 +411,7 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
           opts?.minTimestamp
         ),
       receipts: () => this.fetchReceipts(bundleTransactions),
-      bundleHash: response.result.bundleHash
+      bundleHash: response.result?.bundleHash
     }
   }
 
@@ -882,7 +882,7 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
     const callResult = response.result
     return {
       bundleGasPrice: BigNumber.from(callResult.bundleGasPrice),
-      bundleHash: callResult.bundleHash,
+      bundleHash: callResult?.bundleHash,
       coinbaseDiff: BigNumber.from(callResult.coinbaseDiff),
       ethSentToCoinbase: BigNumber.from(callResult.ethSentToCoinbase),
       gasFees: BigNumber.from(callResult.gasFees),
